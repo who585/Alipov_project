@@ -1,8 +1,0 @@
-git --version проверить версию Git
-git config --global user.name
-Имя
-установить имя пользователя
-git config --global user.email
-email установить email
-git config --list посмотреть все настройки
-git init инициализировать репозиторий
