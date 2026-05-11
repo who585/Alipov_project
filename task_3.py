@@ -1,6 +1,12 @@
 df = pd.read_csv('5 train.csv')
-df['datetime'] = pd.to_datetime(df['datetime'])
-hourly_rides = df.groupby(weekend_rides['datetime'].dt.month)[['temp','count']].mean()
-hourly_rides.to_csv("Средняя температура и число поездок по месяцам.csv", sep=";")
 
+hot = df[df['count'] > 500]
 
+seasons = hot.groupby('season').size()
+
+top_season = seasons.idxmax()
+top_count = seasons.max()
+
+print(f'Всего наблюдений  > 500: {len(hot)}')
+print(f'Самый популярный сезон: {top_season} ')
+print(f'В этот сезон поездок: {top_count}')
